@@ -83,6 +83,36 @@ module.exports = new Command({
         { userID: targetData.userID },
         { points: 0, $inc: { defeats: 1 } }
       );
+
+      const embed = new Discord.MessageEmbed();
+
+      embed
+        .setTitle(`${target.tag} Surcord Ranking Profile`)
+        .setColor("RANDOM")
+        .setThumbnail(target.avatarURL({ dynamic: true }))
+        .addField(`Surcord ranking Points :`, `${targetData.points} -> 0`, true)
+        .addFields(
+          {
+            name: `Wins :`,
+            value: `${profileData.wins}`,
+            inline: true,
+          },
+          {
+            name: `Defeats :`,
+            value: `${profileData.defeats} -> ${profileData.defeats + 1} `,
+            inline: true,
+          },
+          {
+            name: `Surcord Win % :`,
+            value: `${
+              (profileData.wins / (profileData.wins + profileData.defeats)) *
+              100
+            }%`,
+            inline: true,
+          }
+        );
+
+      await message.channel.send({ embeds: [embed] });
     } else {
       await profileModels.updateOne(
         { userID: targetData.userID },
@@ -93,11 +123,79 @@ module.exports = new Command({
           },
         }
       );
+
+      const embed = new Discord.MessageEmbed();
+
+      embed
+        .setTitle(`${target.tag} Surcord Ranking Profile`)
+        .setColor("RANDOM")
+        .setThumbnail(target.avatarURL({ dynamic: true }))
+        .addField(
+          `Surcord ranking Points :`,
+          `${targetData.points} -> ${targetData.points - 45}`,
+          true
+        )
+        .addFields(
+          {
+            name: `Wins :`,
+            value: `${profileData.wins}`,
+            inline: true,
+          },
+          {
+            name: `Defeats :`,
+            value: `${profileData.defeats} -> ${profileData.defeats + 1} `,
+            inline: true,
+          },
+          {
+            name: `Surcord Win % :`,
+            value: `${
+              (profileData.wins / (profileData.wins + profileData.defeats)) *
+              100
+            }%`,
+            inline: true,
+          }
+        );
+
+      await message.channel.send({ embeds: [embed] });
     }
 
     await profileModels.updateOne(
       { userID: message.author.id },
       { $inc: { points: +95, wins: +1 } }
     );
+
+    const Eembed = new Discord.MessageEmbed();
+
+    Eembed.setTitle(`${message.author.tag} Surcord Ranking Profile`)
+      .setColor("RANDOM")
+      .setThumbnail(message.author.avatarURL({ dynamic: true }))
+      .addField(
+        `Surcord ranking Points :`,
+        `${SelfTargetData.points} -> ${SelfTargetData.points + 95}`,
+        true
+      )
+      .addFields(
+        {
+          name: `Wins :`,
+          value: `${SelfTargetData.wins} -> ${SelfTargetData.wins + 1} `,
+          inline: true,
+        },
+        {
+          name: `Defeats :`,
+          value: `${SelfTargetData.defeats} `,
+          inline: true,
+        },
+        {
+          name: `Surcord Win % :`,
+          value: `${
+            (SelfTargetData.wins /
+              (SelfTargetData.wins + SelfTargetData.defeats)) *
+            100
+          }%`,
+          inline: true,
+        }
+      );
+
+    await message.channel.send({ embeds: [Eembed] });
   },
 });
