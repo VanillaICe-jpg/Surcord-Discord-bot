@@ -26,8 +26,8 @@ const profileSchema = new mongoose.Schema({
     default: 0,
   },
   rank: {
-    type: Number,
-    default: 5,
+    type: String,
+    default: "Beginner",
   },
 });
 

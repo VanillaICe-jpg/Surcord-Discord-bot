@@ -11,7 +11,7 @@ module.exports = new Command({
     msg.edit(
       `Pong: ${client.ws.ping} ms.\nMessage Ping: ${
         msg.createdTimestamp - message.createdTimestamp
-      } ms.`
+      } ms. <:mamines:897278481614909441>`
     );
   },
 });

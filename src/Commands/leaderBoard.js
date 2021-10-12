@@ -29,6 +29,7 @@ module.exports = new Command({
               embed
                 .addField(
                   `Top ${i + 1}! ${member}`,
+                  `rank: ${res[i].rank}`,
                   `points: ${res[i].points}`,
                   `with ${res[i].wins} Wins!`
                 )
@@ -39,6 +40,7 @@ module.exports = new Command({
               embed
                 .addField(
                   `Top ${i + 1}! ${member.user.username}`,
+                  `rank: ${res[i].rank}`,
                   `points: ${res[i].points}`,
                   `with ${res[i].wins} Wins!`
                 )
@@ -56,6 +58,7 @@ module.exports = new Command({
               embed
                 .addField(
                   `Top ${i + 1}! ${member}`,
+                  `rank: ${res[i].rank}`,
                   `points: ${res[i].points}`,
                   `with ${res[i].wins} Wins!`
                 )
@@ -66,6 +69,7 @@ module.exports = new Command({
               embed
                 .addField(
                   `Top ${i + 1}! ${member.user.username}`,
+                  `rank: ${res[i].rank}`,
                   `points: ${res[i].points}`,
                   `with ${res[i].wins} Wins!`
                 )

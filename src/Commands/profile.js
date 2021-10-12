@@ -32,6 +32,7 @@ module.exports = new Command({
                 points: 0,
                 wins: 0,
                 defeats: 0,
+                rank: "Beginner",
               });
             });
           message.reply("Done!, welcome to Surcord Ranking");
@@ -63,7 +64,8 @@ module.exports = new Command({
                 }%`,
                 inline: true,
               }
-            );
+            )
+            .addField(`Surcord rank :`, `${profileData.rank}`, true);
 
           await message.channel.send({ embeds: [embed] });
         } else {
@@ -94,7 +96,8 @@ module.exports = new Command({
                 }%`,
                 inline: true,
               }
-            );
+            )
+            .addField(`Surcord rank :`, `${profileData.rank}`, true);
 
           message.channel.send({ embeds: [embed] });
         }
@@ -119,6 +122,7 @@ module.exports = new Command({
                 points: 0,
                 wins: 0,
                 defeats: 0,
+                rank: "Beginner",
               });
             });
           message.reply("Done!, welcome to Surcord Ranking");
@@ -149,7 +153,8 @@ module.exports = new Command({
                 }%`,
                 inline: true,
               }
-            );
+            )
+            .addField(`Surcord rank :`, `${targetData.rank}`, true);
 
           await message.channel.send({ embeds: [embed] });
         } else {
@@ -179,7 +184,8 @@ module.exports = new Command({
                 }%`,
                 inline: true,
               }
-            );
+            )
+            .addField(`Surcord rank :`, `${targetData.rank}`, true);
 
           await message.channel.send({ embeds: [embed] });
         }

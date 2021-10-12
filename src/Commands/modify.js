@@ -35,6 +35,16 @@ module.exports = new Command({
       `
     );
 
+    if (args[2] == undefined) {
+      args[2] = 0;
+    }
+    if (args[3] == undefined) {
+      args[3] = 0;
+    }
+    if (args[4] == undefined) {
+      args[4] = 0;
+    }
+
     await profileModels.updateOne(
       { userID: targetData.userID },
       {

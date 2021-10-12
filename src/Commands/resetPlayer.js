@@ -40,6 +40,7 @@ module.exports = new Command({
         points: 0,
         wins: 0,
         defeats: 0,
+        rank: "Beginner",
       }
     );
   },
